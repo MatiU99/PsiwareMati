@@ -34,7 +34,7 @@ const Car = sequelize.define(
     timestamps: false,
   }
 );
-Car.sync({ force: true });
+Car.sync();
 
 // insert into Cars values ("Chevrolet","xfv234","2012","1020,00","true")
 // insert into Cars values ("Fiat","tfv234","2011","1120,00","true")
