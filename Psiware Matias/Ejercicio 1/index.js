@@ -20,7 +20,25 @@ let m = Math.max(...array);
 console.log(m);
 
 // ------------ Parte 2 --------------
-function pares() {
+function ordenar(array) {
+  let array = [1, 10, 6, 8, 15, 2];
+  let flag = true;
+  while (flag === true) {
+    flag = false;
+    for (let i = 0; i < array.length - 1; i++) {
+      if (array[i] > array[i + 1]) {
+        let aux = array[i];
+        array[i] = array[i + 1];
+        array[i + 1] = aux;
+        flag = true;
+      }
+    }
+  }
+  return array;
+}
+ordenar();
+//----------------- 2a ------------------------
+function parpos() {
   let array = [1, 10, 6, 8, 15, 2];
   let par = [];
   let posicion = [];
@@ -35,4 +53,18 @@ function pares() {
   }
   return par, posicion;
 }
-pares();
+parpos();
+
+function arraypar() {
+  let array = [1, 10, 6, 8, 15, 2];
+  let par = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 === 0) {
+      par.push(array[i]);
+    } else {
+      par = par;
+    }
+  }
+  return par;
+}
+arraypar();
