@@ -27,6 +27,7 @@ const menor = (object) => {
       return a - b;
     });
   }
+  console.log(object);
   return object;
 };
 menor(object);
@@ -34,26 +35,36 @@ menor(object);
 // --------------- parte c -----------------------
 
 function suma(object) {
-  // aux = [];
   for (let key in object) {
     object[key] = object[key].reduce((a, b) => a + b);
-    aux.push(object[key][0]);
   }
-  // aux.sort(function (a, b) {
-  //   return a - b;
-  // });
-  // return aux;
+  let ordenar = Object.entries(object);
+  let array = ordenar.sort(function (a, b) {
+    return a[1] - b[1];
+  });
+  let final = {};
+  for (let i = 0; i < array.length; i++) {
+    final[array[i][0]] = array[i][1];
+  }
+  console.log(final);
+  return final;
 }
 suma(object);
 //-------------- Parte d ----------------
 
 function pares(object) {
-  for (let key in object) {
-    for (let i = 0; i < object[key].length; i++) {
-      if (object[key][i] % 2 === 0) {
-        par.push(object[key][i]);
+  let auxArray = [];
+  let aux = Object.entries(object);
+  for (let i = 0; i < aux.length; i++) {
+    for (let j = 0; j < aux[i][1].length; j++) {
+      if (aux[i][1][j] % 2 === 0) {
+        auxArray.push(aux[i][1][j]);
       }
     }
   }
+  object.key4 = auxArray;
+  // console.log(auxArray);
+  console.log(object);
+  return object;
 }
-pares();
+pares(object);
